@@ -76,6 +76,7 @@
 
   const keys= Array.from(document.querySelectorAll('.key'));
   // when you have an array, you can not listen to all of them --> addEventListerner to .key would not work
+  // Transistion end event vs. setTimer
   // Each key an eventlistener is added, once transitioned, remove it ---> make function 
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
    // first: setup key up event 
