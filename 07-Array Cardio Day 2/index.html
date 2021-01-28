@@ -65,6 +65,7 @@
     console.log(index);
 
     //comments.splice(index, 1);
+    // With REDUX, we make a new array with the updated comments
     const newComment = [
       ...comments.slice(0, index),
       ...comments.slice(index + 1)
