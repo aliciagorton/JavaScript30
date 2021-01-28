@@ -12,12 +12,11 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 ctx.strokeStyle = '#BADA55';
-ctx.lineWidth = hue;
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 100;
 // globalCompositeOperation
-ctx.globalCompositeOperation = 'multiply';
+// ctx.globalCompositeOperation = 'multiply';
 
 let isDrawing = false;
 let lastX = 0;
@@ -36,10 +35,9 @@ function draw(e){
   // go to
   ctx.lineTo(e.offsetX, e.offsetY);
   ctx.stroke();
-
+  [lastX, lastY] = [e.offsetX, e.offsetY];
   // lastX = e.offsetX;
   // lastY = e.offsetY;
-  [lastX, lastY] = [e.offsetX, e.offsetY];
 
   /* MOTHER EFFING HSL (hue, saturation, lightness)*/
   hue++;
@@ -52,13 +50,14 @@ function draw(e){
   }
   // depending on direction we increment or decrement
   if(direction) {
-    ct.lineWidth++;
+    ctx.lineWidth++;
   } else {
     ctx.lineWidth--;
   }
 }
 
-canvas.addEventListener('mousedown', (e) => {isDrawing = true;
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
   [lastX, lastY] = [e.offsetX, e.offsetY];
 });
 
