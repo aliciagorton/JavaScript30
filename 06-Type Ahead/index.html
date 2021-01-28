@@ -39,7 +39,7 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-function displayMatches(){
+function displayMatches() {
   const matchArry = findMatches(this.value, cities);
   const html = matchArray.map(place => {
     const regex = new RegExp(this.value, 'git');
@@ -51,13 +51,15 @@ function displayMatches(){
     </li>`;
   }).join('');
   suggestions.innerHTML = html;
-};
+}
 
 const searchInput = document.querySelector('.search');
 const suggestions = document.querySelector('.suggestions');
 
 searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
+
+// challenge how do you sort geolocation, which cities are closer to me? 
 </script>
 </body>
 </html>
